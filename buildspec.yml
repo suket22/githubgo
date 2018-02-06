@@ -9,8 +9,11 @@ phases:
       # application source code into that directory structure.
       - ln -s "${CODEBUILD_SRC_DIR}" "/go/src/handler"
 
-      # Install dependencies
-      - go get ./...
+      # Install golint
+      - go get -u github.com/golang/lint/golint
+
+      # Install Testify to use common assertions and mocks in tests
+      - go get -u github.com/stretchr/testify
 
   pre_build:
     commands:
