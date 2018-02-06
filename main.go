@@ -7,6 +7,8 @@ import (
 	"github.com/aws/aws-lambda-go/lambda"
 )
 
+// Handler takes in an APIGatewayProxyRequest, processes it,
+// and returns an APIGatewayProxyResponse.
 func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
 
 	index, err := ioutil.ReadFile("public/index.html")
