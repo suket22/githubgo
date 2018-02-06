@@ -5,12 +5,15 @@ phases:
   install:
     commands:
 
-      # AWS Codebuild Go images use /go for the $GOPATH so let's symlink our 
+      # AWS Codebuild Go images use /go for the $GOPATH so let's symlink our
       # application source code into that directory structure.
       - ln -s "${CODEBUILD_SRC_DIR}" "/go/src/main"
 
       # Install golint
       - go get -u github.com/golang/lint/golint
+
+      # Install Testify to use common assertions and mocks in tests
+      - go get -u github.com/stretchr/testify
 
   pre_build:
     commands:
