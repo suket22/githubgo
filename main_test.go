@@ -1,7 +1,6 @@
-package main_test
+package main
 
 import (
-  main "."
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/stretchr/testify/assert"
 	"testing"
@@ -18,7 +17,7 @@ func TestHandler(t *testing.T) {
 		Body: "Congratulations",
 	}
 
-	response, err := main.Handler(request)
+	response, err := Handler(request)
 
 	assert.Equal(t, response.Headers, expectedResponse.Headers)
 	assert.Contains(t, response.Body, expectedResponse.Body)
