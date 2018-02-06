@@ -1,4 +1,4 @@
-package handler
+package main
 
 import (
 	"io/ioutil"
@@ -10,7 +10,7 @@ import (
 // and returns an APIGatewayProxyResponse.
 func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
 
-	index, err := ioutil.ReadFile("../public/index.html")
+	index, err := ioutil.ReadFile("public/index.html")
 	if err != nil {
 		return events.APIGatewayProxyResponse{}, err
 	}
